@@ -42,7 +42,15 @@ pipeline {
 
         stage('Container Security Scan - Trivy') {
             steps {
-                sh 'trivy image --severity CRITICAL --exit-code 1 --no-progress mi-app:latest'
+                sh '''
+                docker run --rm \
+                -v /var/run/docker.sock:/var/run/docker.sock \
+                aquasec/trivy:latest image \
+                --severity CRITICAL \
+                --exit-code 1 \
+                --no-progress \
+                mi-app:latest
+                '''
             }
         }
 
