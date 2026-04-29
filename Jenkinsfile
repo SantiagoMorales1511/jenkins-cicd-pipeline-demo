@@ -35,7 +35,13 @@ pipeline {
                     -e SONAR_TOKEN=$SONAR_TOKEN \
                     -v "$PWD:/usr/src" \
                     -w /usr/src \
-                    sonarsource/sonar-scanner-cli
+                    sonarsource/sonar-scanner-cli \
+                    -Dsonar.projectKey=mi-app \
+                    -Dsonar.projectName=mi-app \
+                    -Dsonar.projectVersion=1.0 \
+                    -Dsonar.sources=. \
+                    -Dsonar.inclusions=index.html \
+                    -Dsonar.sourceEncoding=UTF-8
                     '''
                 }
             }
