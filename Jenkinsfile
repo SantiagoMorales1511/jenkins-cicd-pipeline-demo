@@ -28,15 +28,15 @@ pipeline {
 
         stage('Static Analysis - SonarQube') {
             steps {
-                sh '''
-                echo "Ejecutando análisis estático"
-                if command -v sonar-scanner >/dev/null 2>&1; then
-                sonar-scanner
-                else
-                echo "sonar-scanner no está instalado en el agente Jenkins"
-                echo "Configuración disponible en sonar-project.properties"
-                fi
-                '''
+                withCredentials([string(credentialsId: 'sonar-token', variable: 'SONAR_TOKEN')]) {
+                    sh '''
+                    docker run --rm \
+                    -e SONAR_HOST_URL=http://host.docker.internal:9000 \
+                    -e SONAR_TOKEN=$SONAR_TOKEN \
+                    -v "$PWD:/usr/src" \
+                    sonarsource/sonar-scanner-cli
+                    '''
+                }
             }
         }
 
