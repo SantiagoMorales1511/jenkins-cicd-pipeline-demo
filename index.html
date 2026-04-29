@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo CI/CD</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --primary: #1f3a8a;
+      --text: #1f2937;
+      --muted: #4b5563;
+      --accent: #0ea5e9;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #e0ecff, #f8fbff);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text);
+      padding: 24px;
+    }
+    .container {
+      width: 100%;
+      max-width: 820px;
+      background: var(--card);
+      border-radius: 14px;
+      padding: 34px;
+      box-shadow: 0 16px 40px rgba(31, 58, 138, 0.18);
+      border: 1px solid #dbeafe;
+    }
+    h1 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .stack {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      margin: 20px 0 24px;
+    }
+    .tag {
+      background: #eff6ff;
+      color: #1e40af;
+      border: 1px solid #bfdbfe;
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+      font-weight: 600;
+    }
+    .version {
+      display: inline-block;
+      background: var(--accent);
+      color: #ffffff;
+      border-radius: 20px;
+      padding: 7px 14px;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <h1>Demo de CI/CD</h1>
+    <p>Aplicación web estática para la validación de un pipeline académico de integración y despliegue continuo.</p>
+    <p>El flujo automatizado contempla construcción, análisis de calidad, escaneo de seguridad y despliegue en contenedor.</p>
+    <section class="stack">
+      <div class="tag">Jenkins</div>
+      <div class="tag">Docker</div>
+      <div class="tag">SonarQube</div>
+      <div class="tag">Trivy</div>
+    </section>
+    <span class="version">Versión 1.0</span>
+  </main>
+</body>
+</html>
